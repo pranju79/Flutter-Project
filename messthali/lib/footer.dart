@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Home extends StatefulWidget {
-  const Home({super.key});
+class Footer extends StatefulWidget {
+  const Footer({super.key});
 
   @override
-  State<Home> createState() => _HomeState();
+  State<Footer> createState() => _FooterState();
 }
 
-class _HomeState extends State<Home> {
+class _FooterState extends State<Footer> {
   bool _isMessHovered = false;
   bool _isPolicyHovered = false;
   bool _isHelpHovered = false;
