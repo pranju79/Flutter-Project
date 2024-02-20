@@ -416,9 +416,9 @@ class _HomeState extends State<Home> {
             child: Text(
               title,
               style: TextStyle(
-                color: isHovered ? Colors.white : Colors.grey[700],
+                color: isHovered ? Colors.white70 : Colors.grey[700],
                 fontSize: 15,
-                fontWeight: FontWeight.w600,
+                fontWeight: FontWeight.w500,
               ),
             ),
           ),
