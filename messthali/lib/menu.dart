@@ -1,6 +1,7 @@
 import 'dart:math';
 
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Menu extends StatefulWidget {
   const Menu({super.key});
@@ -32,173 +33,182 @@ class _MenuState extends State<Menu> {
           children: [
             Padding(
               padding: const EdgeInsets.only(top: 3),
-              child: Container(
-                height: 350,
-                width: double.infinity,
-                color: Colors.purple[100],
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(top: 60, left: 120),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          const Text(
-                            'MESS THALI',
-                            style: TextStyle(
-                              fontSize: 46,
-                              fontStyle: FontStyle.normal,
-                              fontWeight: FontWeight.w900,
-                              color: Colors.purple,
-                            ),
-                          ),
-                          const Padding(
-                            padding: EdgeInsets.only(top: 16),
-                            child: Text(
-                              'Pimple Gurav, Pune',
-                              style: TextStyle(
-                                fontSize: 22,
-                                fontStyle: FontStyle.normal,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.purple,
+              child: Stack(
+                children: [
+                  const SizedBox(
+                    height: 450,
+                    width: double.infinity,
+                  ),
+                  Positioned.fill(
+                    child: Image.asset(
+                      'assets/banner2.png',
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                  Positioned(
+                    top: 390,
+                    right: 200,
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Row(
+                          children: [
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(top: 12, right: 80),
+                              child: GestureDetector(
+                                onTap: () {
+                                  _launchMap();
+                                },
+                                child: const Text.rich(
+                                  TextSpan(
+                                    text: 'Pimple Gurav, Pune - ',
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      fontStyle: FontStyle.normal,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color.fromARGB(255, 90, 61, 50),
+                                    ),
+                                    children: <TextSpan>[
+                                      TextSpan(
+                                        text: 'Get directions',
+                                        style: TextStyle(
+                                          decoration: TextDecoration.underline,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
                               ),
                             ),
-                          ),
-                          const SizedBox(height: 60),
-                          Row(
-                            children: [
-                              SizedBox(
-                                width: 160,
-                                height: 40,
-                                child: TextButton.icon(
-                                  onPressed: () {},
-                                  style: ButtonStyle(
-                                    backgroundColor: MaterialStateProperty
-                                        .resolveWith<Color>(
-                                      (Set<MaterialState> states) {
-                                        if (states
-                                            .contains(MaterialState.hovered)) {
-                                          return Colors.white;
-                                        }
-                                        return Colors.white;
-                                      },
-                                    ),
-                                    overlayColor: MaterialStateProperty
-                                        .resolveWith<Color>(
-                                      (Set<MaterialState> states) {
-                                        if (states
-                                            .contains(MaterialState.hovered)) {
-                                          return Colors.purple.withOpacity(0.2);
-                                        }
-                                        return Colors.transparent;
-                                      },
-                                    ),
-                                    shape: MaterialStateProperty.all<
-                                        RoundedRectangleBorder>(
-                                      RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.only(right: 80, top: 12),
+                              child: Row(
+                                children: [
+                                  Row(
+                                    children: List.generate(
+                                      5,
+                                      (index) => Icon(
+                                        Icons.star,
+                                        color: Colors.yellow[800],
+                                        size: 28.0,
                                       ),
                                     ),
                                   ),
-                                  icon: const Icon(Icons.photo,
-                                      color: Colors.purple),
-                                  label: const Text(
-                                    'View Photos',
+                                  const SizedBox(width: 8),
+                                  const Text(
+                                    '(343 reviews)',
                                     style: TextStyle(
-                                      color: Colors.purple,
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 16,
+                                      fontSize: 14,
+                                      fontWeight: FontWeight.bold,
+                                      color: Color.fromARGB(255, 90, 61, 50),
                                     ),
                                   ),
-                                ),
+                                ],
                               ),
-                              const SizedBox(width: 20),
-                              SizedBox(
-                                width: 160,
-                                height: 40,
-                                child: TextButton.icon(
-                                  onPressed: () {},
-                                  style: ButtonStyle(
-                                    backgroundColor: MaterialStateProperty
-                                        .resolveWith<Color>(
-                                      (Set<MaterialState> states) {
-                                        if (states
-                                            .contains(MaterialState.hovered)) {
-                                          return Colors.white;
-                                        }
+                            ),
+                            SizedBox(
+                              width: 140,
+                              height: 35,
+                              child: TextButton.icon(
+                                onPressed: () {},
+                                style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStateProperty.resolveWith<Color>(
+                                    (Set<MaterialState> states) {
+                                      if (states
+                                          .contains(MaterialState.hovered)) {
                                         return Colors.white;
-                                      },
-                                    ),
-                                    overlayColor: MaterialStateProperty
-                                        .resolveWith<Color>(
-                                      (Set<MaterialState> states) {
-                                        if (states
-                                            .contains(MaterialState.hovered)) {
-                                          return Colors.purple.withOpacity(0.2);
-                                        }
-                                        return Colors.transparent;
-                                      },
-                                    ),
-                                    shape: MaterialStateProperty.all<
-                                        RoundedRectangleBorder>(
-                                      RoundedRectangleBorder(
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                      ),
-                                    ),
+                                      }
+                                      return Colors.white;
+                                    },
                                   ),
-                                  icon: const Icon(Icons.favorite,
-                                      color: Colors.purple),
-                                  label: const Text(
-                                    'Wishlist',
-                                    style: TextStyle(
-                                      color: Colors.purple,
-                                      fontWeight: FontWeight.w700,
-                                      fontSize: 16,
+                                  overlayColor:
+                                      MaterialStateProperty.resolveWith<Color>(
+                                    (Set<MaterialState> states) {
+                                      if (states
+                                          .contains(MaterialState.hovered)) {
+                                        return const Color.fromARGB(
+                                                255, 90, 61, 50)
+                                            .withOpacity(0.2);
+                                      }
+                                      return Colors.transparent;
+                                    },
+                                  ),
+                                  shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10.0),
                                     ),
                                   ),
                                 ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ),
-                    MouseRegion(
-                      onEnter: (event) {
-                        setState(() {
-                          isHovered = true;
-                        });
-                      },
-                      onExit: (event) {
-                        setState(() {
-                          isHovered = false;
-                        });
-                      },
-                      child: Padding(
-                        padding: const EdgeInsets.only(right: 70, bottom: 7),
-                        child: isHovered
-                            ? Transform.scale(
-                                scale: 1.1,
-                                child: Image.asset(
-                                  'assets/thali.png',
-                                  width: 660,
-                                  fit: BoxFit.fill,
-                                  height: 610,
+                                icon: const Icon(Icons.photo,
+                                    color: Color.fromARGB(255, 90, 61, 50)),
+                                label: const Text(
+                                  'View Photos',
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 90, 61, 50),
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 14,
+                                  ),
                                 ),
-                              )
-                            : Image.asset(
-                                'assets/thali.png',
-                                width: 660,
-                                fit: BoxFit.fill,
-                                height: 610,
                               ),
-                      ),
+                            ),
+                            const SizedBox(width: 20),
+                            SizedBox(
+                              width: 140,
+                              height: 35,
+                              child: TextButton.icon(
+                                onPressed: () {},
+                                style: ButtonStyle(
+                                  backgroundColor:
+                                      MaterialStateProperty.resolveWith<Color>(
+                                    (Set<MaterialState> states) {
+                                      if (states
+                                          .contains(MaterialState.hovered)) {
+                                        return Colors.white;
+                                      }
+                                      return Colors.white;
+                                    },
+                                  ),
+                                  overlayColor:
+                                      MaterialStateProperty.resolveWith<Color>(
+                                    (Set<MaterialState> states) {
+                                      if (states
+                                          .contains(MaterialState.hovered)) {
+                                        return const Color.fromARGB(
+                                                255, 90, 61, 50)
+                                            .withOpacity(0.2);
+                                      }
+                                      return Colors.transparent;
+                                    },
+                                  ),
+                                  shape: MaterialStateProperty.all<
+                                      RoundedRectangleBorder>(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10.0),
+                                    ),
+                                  ),
+                                ),
+                                icon: const Icon(Icons.favorite,
+                                    color: Color.fromARGB(255, 90, 61, 50)),
+                                label: const Text(
+                                  'Wishlist',
+                                  style: TextStyle(
+                                    color: Color.fromARGB(255, 90, 61, 50),
+                                    fontWeight: FontWeight.w700,
+                                    fontSize: 14,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
-                  ],
-                ),
+                  ),
+                ],
               ),
             ),
             const SizedBox(
@@ -873,5 +883,18 @@ class _MenuState extends State<Menu> {
         ),
       ),
     );
+  }
+}
+
+void _launchMap() async {
+  // Replace with the actual coordinates or address
+  String mapUrl = 'https://maps.google.com/?q=Pimple+Gurav,Pune';
+
+  // ignore: deprecated_member_use
+  if (await canLaunch(mapUrl)) {
+    // ignore: deprecated_member_use
+    await launch(mapUrl);
+  } else {
+    throw 'Could not launch $mapUrl';
   }
 }
