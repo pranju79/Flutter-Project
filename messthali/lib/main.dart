@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:messthali/menu.dart';
+import 'package:messthali/counter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,13 +11,13 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Mess Thali',
+      title: 'Task',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const Menu(),
+      home: const Counter(),
     );
   }
 }
