@@ -87,6 +87,18 @@ flutter:
    - assets/mughlaichicken.jpg
    - assets/banner1.png
    - assets/banner2.png
+   - assets/bhaji_icon.jpeg
+   - assets/chicken_icon.jpeg
+   - assets/indian_food.jpeg
+   - assets/masaladosaimage.jpeg
+   - assets/messthali.jpeg
+   - assets/misalpavimage.jpeg
+   - assets/nasta_icon.jpeg
+   - assets/pavbhajiimage.jpeg
+   - assets/pohaimage.jpeg
+   - assets/rice_icon.jpeg
+   - assets/vegthali_icon.jpeg
+   - assets/plate.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
   # For details regarding adding assets from package dependencies, see
